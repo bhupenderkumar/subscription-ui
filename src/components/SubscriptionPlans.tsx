@@ -5,7 +5,7 @@ interface Plan {
   planId: number;
   planName: string;
   price: number;
-  duration: string; 
+  duration: string;
   features: string;
   description?: string;
 }
@@ -50,13 +50,13 @@ const SubscriptionPlans: React.FC = () => {
       {loading ? (
         <p>Loading plans...</p>
       ) : (
-<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {Array.isArray(plans) && plans.length > 0 ? (
             plans.map((plan) => (
-              <div key={plan.planId} className="bg-white rounded-lg shadow-md p-4">
-                <h3 className="text-xl font-semibold">{plan.planName}</h3>
-                <p className="text-gray-600">{plan.description}</p>
-                <p className="text-green-500">Price: ${plan.price.toFixed(2)}</p>
+              <div key={plan.planId} className="bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition duration-300">
+                <h3 className="text-2xl font-bold text-gray-900">{plan.planName}</h3>
+                <p className="text-gray-700 text-sm">{plan.description}</p>
+                <p className="text-green-500 text-2xl font-bold">Price: ${plan.price.toFixed(2)} / month</p>
                 <p className="font-bold">Features:</p>
                 <ul className="feature-list">
                   {plan.features.split(',').map((feature: string, index: number) => (
@@ -65,7 +65,7 @@ const SubscriptionPlans: React.FC = () => {
                 </ul>
                 <button
                   onClick={() => handleSubscribe(plan.planId)}
-                  className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                  className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full transition duration-300"
                 >
                   Subscribe
                 </button>

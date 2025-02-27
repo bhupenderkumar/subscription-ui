@@ -1,1 +1,10 @@
-/* Remove Tsailwind directives */
+/* Remove Tailwind directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gray-100;
+  }
+}

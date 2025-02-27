@@ -1,18 +1,21 @@
-import React from 'react';
-import UserCreationForm from './components/UserCreationForm';
-import SubscriptionPlans from './components/SubscriptionPlans';
-import SubscriberContent from './components/SubscriberContent';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Layout from './components/Layout';
+import Home from './pages/Home';
+import Plans from './pages/Plans';
+import Subscribers from './pages/Subscribers';
 import './App.css';
 
-const App: React.FC = () => {
+const App = () => {
   return (
-    <div>
-      <h1>Subscription App</h1>
-      <a href="/subscription-plans">Subscription Plans</a>
-      <UserCreationForm />
-      <SubscriptionPlans />
-      <SubscriberContent />
-    </div>
+    <Router>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/subscription-plans" element={<Plans />} />
+          <Route path="/subscribers" element={<Subscribers />} />
+        </Routes>
+      </Layout>
+    </Router>
   );
 };
 
